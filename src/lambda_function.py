@@ -1,8 +1,6 @@
 import json
-
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
-
 from utils import get_title
 
 
@@ -13,8 +11,8 @@ def lambda_handler(event, context):
 
     driver = webdriver.Firefox(executable_path='/usr/local/bin/geckodriver',
                                log_path='/tmp/geckodriver.log',
-                               firefox_options=options)
-    
+                               options=options)
+
     title = get_title(driver)
     print(title)
 
@@ -24,3 +22,8 @@ def lambda_handler(event, context):
         'statusCode': 200,
         'body': json.dumps("LGTM")
     }
+
+
+if __name__ == '__main__':
+    kappa_handler = lambda_handler({}, {})
+    print(kappa_handler)

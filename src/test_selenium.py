@@ -11,7 +11,7 @@ if __name__ == '__main__':
 
     driver = webdriver.Firefox(executable_path='/usr/local/bin/geckodriver',
                                log_path='/tmp/geckodriver.log',
-                               firefox_options=options)
+                               options=options)
     
     title = get_title(driver)
     print(title)
