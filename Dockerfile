@@ -33,9 +33,9 @@ RUN --mount=type=cache,target=/root/.cache/pip python -m pip install --upgrade p
 RUN --mount=type=cache,target=/root/.cache/pip python -m pip install --upgrade setuptools
 RUN --mount=type=cache,target=/root/.cache/pip python -m pip install -r requirements.txt
 
-COPY src ${LAMBDA_TASK_ROOT}/src
+COPY src ${LAMBDA_TASK_ROOT}
 
 # For docker build local testing
-RUN python ${LAMBDA_TASK_ROOT}/src/test_selenium.py
+RUN python ${LAMBDA_TASK_ROOT}/test_selenium.py
 
-CMD [ "src.lambda_function.lambda_handler" ]
+CMD [ "lambda_function.lambda_handler" ]
