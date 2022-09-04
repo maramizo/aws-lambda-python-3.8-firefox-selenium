@@ -11,6 +11,7 @@ def lambda_handler(event, context):
 
     driver = webdriver.Firefox(executable_path='/usr/local/bin/geckodriver',
                                log_path='/tmp/geckodriver.log',
+                               service_log_path='/tmp/service.log',
                                options=options)
 
     title = get_title(driver)
